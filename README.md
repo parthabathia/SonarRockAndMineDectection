@@ -1,19 +1,28 @@
 #Sonar Rock and Mine Detection
 
-This code performs binary classification on sonar data to distinguish between mines and rocks. It uses a Logistic Regression model and evaluates its performance on both training and test data.
+This code is written in Python and performs the following tasks:
 
-Here's a breakdown of the steps:
+Imports necessary libraries: Including pandas, numpy, scikit-learn libraries for data manipulation, model training, and evaluation.
 
-Import libraries: Essential libraries like pandas, numpy, sklearn for model selection, train-test split, and accuracy metrics are imported.
-Load data: The sonar data is loaded from a CSV file into a pandas DataFrame.
-Data exploration: The first 5 rows and class distribution (M for mines, R for rocks) are explored.
-Feature engineering: The last column containing the class labels is separated into the target variable Y. The remaining columns become the features in X.
-Train-test split: The data is split into training and testing sets for model training and evaluation. Stratified sampling ensures balanced class distribution in both sets.
-Model training: A Logistic Regression model is trained on the training data.
-Evaluation:
-Training data accuracy: The model's performance on the training data is evaluated using accuracy score.
-Testing data accuracy: The model's performance on unseen data is evaluated on the test set.
-Prediction: The code allows predicting the class of new sonar data by:
-Reshaping the input data to a NumPy array.
-Using the trained model to predict the class ("M" or "R").
-Overall, this code demonstrates the use of Logistic Regression for classifying sonar data and evaluating its effectiveness on both training and testing data.
+Loads data: 
+
+Reads sonar data from a CSV file into a pandas dataframe.
+
+Prepares data:
+
+Checks the distribution of the target variable ("60th column"). It shows two categories: "M" and "R".
+
+Separates features (all columns except the last) and the target variable.
+Splits the data into training and testing sets, ensuring the target variable distribution is preserved (stratified sampling).
+
+Trains a Logistic Regression model: Uses the training data to train a Logistic Regression model to predict the target variable ("M" or "R").
+
+Evaluates model performance:
+
+Calculates the accuracy of the model on both training and testing data.
+Shows that the model performs slightly better on the training data (83%) compared to the testing data (76%).
+
+Predicts on new data: Allows prediction of the target variable for any new data point by providing its features as input.
+
+
+Overall, this code demonstrates building and evaluating a Logistic Regression model for classifying sonar signals as mines ("M") or rocks ("R").
