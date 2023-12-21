@@ -1,4 +1,4 @@
-#Sonar Rock and Mine Detection
+# Sonar Rock and Mine Detection
 
 This code analyzes a diabetes dataset to build a model for predicting whether a person has diabetes based on various medical features. Here's a breakdown of the steps:
 
