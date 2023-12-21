@@ -1,32 +1,34 @@
 # Sonar Rock and Mine Detection
 
-This code analyzes a diabetes dataset to build a model for predicting whether a person has diabetes based on various medical features. Here's a breakdown of the steps:
+This Python code is a machine learning script that uses logistic regression to classify data from a sonar dataset. Here's a breakdown of the code:
 
-    Data Import and Exploration:
-        Libraries: Imports necessary libraries like Pandas, NumPy, Scikit-learn for data manipulation, scaling, and machine learning.
-        Dataset Loading: Reads the diabetes dataset (diabetes.csv) using Pandas.
-        Data Preview: Prints the first few rows of the dataset to get a glimpse of the data.
+1. **Importing Dependencies:**
+   - The code begins by importing necessary libraries such as pandas, numpy, scikit-learn's `train_test_split` for data splitting, `LogisticRegression` for creating a logistic regression model, and `accuracy_score` for evaluating the model's accuracy.
 
-    Data Preprocessing:
-        Feature Selection: Creates separate matrices for features (X) and target variable (Y - "Outcome").
-        Data Scaling: Standardizes the features using StandardScaler for better model performance.
-        Class Distribution: Prints the number of instances for each class ("Outcome") to understand the imbalance (if any).
+2. **Loading Dataset:**
+   - The sonar dataset is loaded into a pandas DataFrame (`sonar_dataset`) from a CSV file named 'sonar_data.csv'. The dataset is assumed to have no header, as `header=None` is specified during the loading.
 
-    Model Training and Evaluation:
-        Train-Test Split: Splits the data into training (80%) and testing (20%) sets to avoid overfitting the model.
-        Model Training: Trains a Linear Support Vector Machine (SVM) classifier on the training data.
-        Accuracy Evaluation: Calculates and prints the accuracy of the model on both training and testing data.
+3. **Exploratory Data Analysis:**
+   - The first five rows of the dataset are displayed using the `head()` method to give an overview of the data.
+   - The code then prints the count of each unique value in the last column (column 60) of the dataset, assuming it contains the target labels.
 
-    Predictions on New Data:
-        Input Data: Defines a list of new data points with medical features for six individuals.
-        Prediction: Uses the trained model to predict the "Outcome" (diabetes) for each new data point.
-        Results: Prints the predicted class and the count of each predicted class for the new data.
+4. **Data Preprocessing:**
+   - The features (X) are created by dropping the last column (column 60), and the target variable (Y) is extracted.
+   - The data is split into training and testing sets using the `train_test_split` function with a test size of 10%, stratification based on the target variable (Y), and a random seed for reproducibility.
 
-Overall, this code demonstrates the process of building and evaluating a machine learning model for diabetes prediction using a Support Vector Machine. By analyzing a diabetes dataset, the model can learn to identify patterns in medical features and predict the likelihood of diabetes for new patients.
-Calculates the accuracy of the model on both training and testing data.
-Shows that the model performs slightly better on the training data (83%) compared to the testing data (76%).
+5. **Model Training:**
+   - A logistic regression model is instantiated (`model`) and trained on the training data using the `fit` method.
 
-Predicts on new data: Allows prediction of the target variable for any new data point by providing its features as input.
+6. **Training Data Evaluation:**
+   - The model's predictions are made on the training data, and the accuracy is calculated using the `accuracy_score` function.
 
+7. **Testing Data Evaluation:**
+   - Similarly, the model's predictions are made on the test data, and the accuracy on the test set is calculated.
 
-Overall, this code demonstrates building and evaluating a Logistic Regression model for classifying sonar signals as mines ("M") or rocks ("R").
+8. **Prediction on Input Data:**
+   - The code then takes the entire input data (`X`) and converts it to a NumPy array. The model is used to predict the labels for this input data.
+
+9. **Post-prediction Analysis:**
+   - The unique values predicted by the model and their respective counts are calculated using NumPy's `unique` function.
+
+Overall, this script demonstrates a simple workflow for loading data, splitting it for training and testing, training a logistic regression model, and evaluating its performance on both training and testing datasets. Additionally, it provides predictions on a given input dataset and analyzes the distribution of predicted values.
