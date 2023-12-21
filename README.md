@@ -1,24 +1,28 @@
 #Sonar Rock and Mine Detection
 
-This code is written in Python and performs the following tasks:
+This code analyzes a diabetes dataset to build a model for predicting whether a person has diabetes based on various medical features. Here's a breakdown of the steps:
 
-Imports necessary libraries: Including pandas, numpy, scikit-learn libraries for data manipulation, model training, and evaluation.
+    Data Import and Exploration:
+        Libraries: Imports necessary libraries like Pandas, NumPy, Scikit-learn for data manipulation, scaling, and machine learning.
+        Dataset Loading: Reads the diabetes dataset (diabetes.csv) using Pandas.
+        Data Preview: Prints the first few rows of the dataset to get a glimpse of the data.
 
-Loads data: 
+    Data Preprocessing:
+        Feature Selection: Creates separate matrices for features (X) and target variable (Y - "Outcome").
+        Data Scaling: Standardizes the features using StandardScaler for better model performance.
+        Class Distribution: Prints the number of instances for each class ("Outcome") to understand the imbalance (if any).
 
-Reads sonar data from a CSV file into a pandas dataframe.
+    Model Training and Evaluation:
+        Train-Test Split: Splits the data into training (80%) and testing (20%) sets to avoid overfitting the model.
+        Model Training: Trains a Linear Support Vector Machine (SVM) classifier on the training data.
+        Accuracy Evaluation: Calculates and prints the accuracy of the model on both training and testing data.
 
-Prepares data:
+    Predictions on New Data:
+        Input Data: Defines a list of new data points with medical features for six individuals.
+        Prediction: Uses the trained model to predict the "Outcome" (diabetes) for each new data point.
+        Results: Prints the predicted class and the count of each predicted class for the new data.
 
-Checks the distribution of the target variable ("60th column"). It shows two categories: "M" and "R".
-
-Separates features (all columns except the last) and the target variable.
-Splits the data into training and testing sets, ensuring the target variable distribution is preserved (stratified sampling).
-
-Trains a Logistic Regression model: Uses the training data to train a Logistic Regression model to predict the target variable ("M" or "R").
-
-Evaluates model performance:
-
+Overall, this code demonstrates the process of building and evaluating a machine learning model for diabetes prediction using a Support Vector Machine. By analyzing a diabetes dataset, the model can learn to identify patterns in medical features and predict the likelihood of diabetes for new patients.
 Calculates the accuracy of the model on both training and testing data.
 Shows that the model performs slightly better on the training data (83%) compared to the testing data (76%).
 
